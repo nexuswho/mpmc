@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Exp 1</title>
+</head>
+
+<body>
+    <h1>Add with Carry</h1>
+    <p>MOV AX,[2000] <br>
+        MOV BX,[2002] <br>
+        MOV CL,00<br>
+        ADD AX,BX<br>
+        JNC 100D<br>
+        INC CL<br>
+        MOV [2004],AX<br>
+        MOV [2006],CL<br>
+        HLT
+    </p>
+
+    <h1>Subtract with Borrow</h1>
+    <p>MOV AX,[2000] <br>
+        MOV BX,[2002] <br>
+        MOV CL,00<br>
+        SUB AX,BX<br>
+        JNC 100D<br>
+        INC CL<br>
+        MOV [2004],AX<br>
+        MOV [2006],CL<br>
+        HLT
+    </p>
+
+    <h1> Average of 3 Numbers</h1>
+    <p>MOV AX,[2000] <br>
+        MOV BX,[2002] <br>
+        MOV CX,[2004] <br>
+        ADD AX,BX<br>
+        ADD AX,CX<br>
+        MOV DX,03<br>
+        DIV DX<br>
+        MOV [2006],AX<br>
+        HLT
+    </p>
+
+    <h1> Sum of array of numbers </h1>
+    <p> MOV CX, 05h <br>
+        MOV AX,0000H<br>
+        MOV BX,0000H<br>
+        MOV SI,2000H<br>
+        Rpt: MOV BL,[SI]<br>
+        ADD AX,BX<br>
+        INC SI<br>
+        DEC CX<br>
+        JNZ Rpt<br>
+        MOV DI, 1050<br>
+        MOV [DI], AX<br>
+        HLT<br>
+    </p>
+    <h1> Adding multi byte numbers </h1>
+    <p>
+        MOV SI, 1200
+        MOV CL, [SI]
+        MOV CH, 00
+        INC SI
+        MOV DI, 2000
+        Addr: MOV AL, [SI]
+        ADC AL, [DI]
+        MOV [SI], AL
+        INC SI
+        INC DI
+        LOOP (Addr)
+        HLT
+
+    </p>
+    <br>
+    <!-- Link to index page -->
+    <a href="/index.html">Back to Index</a>
+</body>
+
+</html>

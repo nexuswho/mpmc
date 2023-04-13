@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Exp 3</title>
+</head>
+
+<body>
+    <h1> 8 bit addition</h1>
+    <p>
+
+        ORG 0000H<br>
+        MOV A, #97H 97H - 1001 0111<br>
+        ADD A, #76H 76H - 0111 0110<br>
+        MOV 55H, A 1 0DH - 1 0000 1101<br>
+        END<br>
+
+
+    </p>
+
+    <h1> 8 bit subtraction</h1>
+    <p>
+        ORG 0000H <br>
+        MOV A, #97H  97H - 1001 0111<br>
+        SUBB A, #76H     76H - 0111 0110<br>
+        MOV 55H, A 0 21H - 0 0010 0001<br>
+        END<br>
+        P - 0, OV – 0, AC - 0 , C - 0<br>
+
+
+    </p>
+    <h1> 16 bit addition</h1>
+    <p>
+        ORG 0000H<br>
+        MOV A, #0E7H<br>
+        ADD A, #8DH<br>
+        MOV R6, A<br>
+        MOV A, #3CH<br>
+        ADDC A,#3BH<br>
+        MOV R7, A<br>
+        END<br>
+
+    </p>
+    <h1> 16 bit subtraction</h1>
+    <p>
+        ORG 0000H<br>
+        MOV A, #62H<br>
+        SUBB A, #96H<br>
+        MOV R6, A<br>
+        MOV A, #27H<br>
+        SUBB A,#12H<br>
+        MOV R7, A<br>
+        END<br>
+
+    </p>
+    <h1> 8 bit multiplication</h1>
+    <p>
+        ORG 0000H<br>
+        MOV A, 33H<br>
+        MOV B, 34H<br>
+        MUL AB<br>
+        MOV 35H, B<br>
+        MOV 36H, A<br>
+        END<br>
+
+    </p>
+
+    <h1> 8 bit division</h1>
+    <p>ORG 0000H<br>
+        MOV A, #95<br>
+        MOV B, #10<br>
+        DIV AB<br>
+        MOV 35H, B<br>
+        MOV 36H, A<br>
+        END <br></p>
+
+    <h1> W=(Y+3Z-6X)/6D </h1>
+    Where D=03H, X=02H, Y=25H and Z=12H<br>
+    MOV A,#25H ; Move Y into accumulator <br>
+    ADD A,#30H ; Add 3Z to accumulator<br>
+    MOV R2,A ; Move result to R2<br>
+    MOV A,#02H ; Move X into accumulator<br>
+    SUBB A,R2 ; Subtract 6X from accumulator<br>
+    MOV R3,A ; Move result to R3<br>
+    MOV A,#03H ; Move D into accumulator<br>
+    DIV AB ; Divide accumulator by B (D)<br>
+    MOV R4,A ; Move quotient to R4<br>
+
+    <h1> (a-b)2=(a2+b2-2ab) </h1>
+    <p>
+        ORG 0000h<br>
+        MOV R0,#55H<br>
+        MOV R1,#56H<br>
+        MOV A,@R0<br>
+        MOV B,@R0<br>
+        MUL AB<br>
+        MOV R2,A<br>
+        MOV A,@R1<br>
+        MOV B,@R1<br>
+        MUL AB<br>
+        MOV R3,A<br>
+        MOV A,@R0<br>
+        MOV B,@R1<br>
+        MUL AB<br>
+        MOV B,#02H<br>
+        MUL AB<br>
+        MOV R4,A<br>
+        MOV A,R2<br>
+        ADD A,R3<br>
+        SUBB A,R4<br>
+        MOV 57H,A<br>
+        MOV 58H,B<br>
+        END<br>
+    </p>
+
+    <!-- Link to index page -->
+    <a href="/index.html">Back to Index</a>
+</body>
+
+</html>

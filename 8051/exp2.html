@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Exp 2</title>
+</head>
+
+<body>
+    <h1>First 15 natural nos</h1>
+    <p>
+
+        MOV R0,#0FH ; Initialize sum to 0<br>
+        MOV R1,#01H ; Initialize counter to 1<br>
+
+        LOOP:<br>
+        ADD A,R1 ; Add counter to accumulator<br>
+        INC R1 ; Increment counter<br>
+        DJNZ R0,LOOP ; Decrement counter and jump if not zero<br>
+        END<br>
+
+
+    </p>
+
+    <h1>Write an 8051 ASM program to move a block of five data from 50H RAM to External memory 4000H, add the same and
+        store the result in 5000H (High Byte) and 5001H(Lower Byte).</h1>
+    <p>
+
+        MOV DPTR, #50H ; Initialize DPTR with source address<br>
+        MOVX A, @DPTR ; Move data from source to accumulator<br>
+        MOV R0, A ; Move data from accumulator to register R0<br>
+        INC DPTR ; Increment DPTR to point to next location<br>
+        MOVX A, @DPTR ; Move data from source to accumulator<br>
+        ADD A, R0 ; Add data in accumulator with data in register R0<br>
+        MOV R1, A ; Move result to register R1<br>
+        INC DPTR ; Increment DPTR to point to next location<br>
+        MOVX A, @DPTR ; Move data from source to accumulator<br>
+        ADD A, R1 ; Add data in accumulator with data in register R1<br>
+        MOV R2, A ; Move result to register R2<br>
+        INC DPTR ; Increment DPTR to point to next location<br>
+        MOVX A, @DPTR ; Move data from source to accumulator<br>
+        ADD A, R2 ; Add data in accumulator with data in register R2<br>
+        MOV R3, A ; Move result to register R3<br>
+        INC DPTR ; Increment DPTR to point to next location<br>
+        MOVX A, @DPTR ; Move data from source to accumulator<br>
+        ADD A, R3 ; Add data in accumulator with data in register R3<br>
+        MOV R4, A ; Move result to register R4<br>
+
+        ; Store the result in memory locations 5000H and 5001H<br>
+        MOV A, R4 ; Move the contents of register R4 into accumulator<br>
+        MOVX @DPTR, A ; Store the contents of accumulator at memory location 5000H (High Byte)<br>
+        INC DPTR ; Increment DPTR to point to next location<br>
+        MOV A, R3 ; Move the contents of register R3 into accumulator<br>
+        MOVX @DPTR, A ; Store the contents of accumulator at memory location 5001H (Lower Byte)<br>
+
+
+    </p>
+    <!-- Link to index page -->
+    <a href="/index.html">Back to Index</a>
+</body>
+
+</html>

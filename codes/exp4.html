@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Exp 3</title>
+</head>
+
+<body>
+    <h1> Factorial</h1>
+    <p>
+        MOV CX, 04H<br>
+        MOV AX, 0001<br>
+        MOV BX, AX<br>
+        L1: INC BX<br>
+        MUL BX<br>
+        CMP BX, CX<br>
+        JNZ L1<br>
+        MOV [2000], AX<br>
+        HLT<br>
+
+    </p>
+    <h1>Permutation </h1>
+    <p>
+        MOV DX,0006H<br>
+        MOV CX,0004H<br>
+        SUB DX,CX<br>
+        MOV CX,DX<br>
+        MOV AX,0001H<br>
+        LOOP1:MUL CX<br>
+        DEC CX<br>
+        JNZ LOOP1<br>
+        MOV BX,AX<br>
+        MOV CX,0006H<br>
+        MOV AX,0001H<br>
+        LOOP2:MUL CX<br>
+        DEC CX<br>
+        JNZ LOOP2<br>
+        DIV BX<br>
+        MOV [2000], AX<br>
+        HLT<br>
+
+    </p>
+
+    <h1> Combination </h1>
+    <p>
+        MOV DX,0006H<br>
+        MOV CX,0004H<br>
+        SUB DX,CX<br>
+        MOV CX,DX<br>
+        MOV AX,0001H<br>
+        LOOP1: MUL CX<br>
+        DEC CX<br>
+        JNZ LOOP1<br>
+        MOV BX,AX<br>
+        MOV CX,0006H<br>
+        MOV AX,0001H<br>
+        LOOP2: MUL CX<br>
+        DEC CX<br>
+        JNZ LOOP2<br>
+        DIV BX<br>
+        MOV BX,AX<br>
+        MOV CX,0004H<br>
+        MOV AX,0001H<br>
+        LOOP3: MUL CX<br>
+        DEC CX<br>
+        JNZ LOOP3<br>
+        MOV CX,AX<br>
+        MOV AX,BX<br>
+        DIV CX<br>
+        MOV [2000], AX<br>
+        HLT<br>
+
+    </p>
+    <!-- Link to index page -->
+    <a href="/index.html">Back to Index</a>
+</body>
+
+</html>

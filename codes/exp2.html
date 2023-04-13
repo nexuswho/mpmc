@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Exp 2</title>
+</head>
+
+<body>
+    <h1> Ascending Order </h1>
+    <p>
+        MOV CH,04H<br>
+        L1: MOV CL,04H<br>
+        MOV SI,2000<br>
+        L2: MOV AL, [SI]<br>
+        MOV BL, [SI+1]<br>
+        CMP AL, BL<br>
+        JB L3 ;<br>
+        MOV DL, [SI+1]<br>
+        XCHG [SI], DL<br>
+        MOV [SI+1], DL<br>
+        L3: INC SI<br>
+        DEC CL<br>
+        JNZ L2<br>
+        DEC CH<br>
+        JNZ L1<br>
+        HLT<br>
+    </p>
+
+    <h1> Descending Order </h1>
+    <p>
+        MOV CH,04H<br>
+        L1: MOV CL,04H<br>
+        MOV SI,2000<br>
+        L2: MOV AL, [SI]<br>
+        MOV BL, [SI+1]<br>
+        CMP AL, BL<br>
+        JNB L3 ;<br>
+        MOV DL, [SI+1]<br>
+        XCHG [SI], DL<br>
+        MOV [SI+1], DL<br>
+        L3: INC SI<br>
+        DEC CL<br>
+        JNZ L2<br>
+        DEC CH<br>
+        JNZ L1<br>
+        HLT<br>
+    </p>
+    <!-- Link to index page -->
+    <a href="/index.html">Back to Index</a>
+
+</body>
+
+</html>

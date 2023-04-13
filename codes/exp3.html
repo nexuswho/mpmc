@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Exp 3</title>
+</head>
+
+<body>
+    <h1> BCD to Hexa</h1>
+    <p>
+
+        MOV SI,2000<br>
+        MOV DI,2500<br>
+        MOV BL,[SI]<br>
+        AND BL,0F<br>
+        MOV AL,[SI]<br>
+        AND AL,F0<br>
+        MOV CL,04<br>
+        ROR AL,CL<br>
+        MOV DL,0A<br>
+        MUL DL<br>
+        ADD AL,BL<br>
+        MOV [DI],AL<br>
+        HLT<br>
+
+    </p>
+
+    <h1> BCD to ASCII</h1>
+    <p>
+        MOV AL, [2000]<br>
+        MOV AH, AL<br>
+        AND AL, 0F<br>
+        MOV CL, 04<br>
+        SHR AH, CL<br>
+        OR AX, 3030<br>
+        MOV [3000], AX<br>
+        HLT<br>
+
+    </p>
+    <!-- Link to index page -->
+    <a href="/index.html">Back to Index</a>
+</body>
+
+</html>
